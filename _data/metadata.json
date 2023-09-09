@@ -1,0 +1,25 @@
+{
+  "title": "Yamabiko",
+  "url": "https://github.com/soundwanders/yamabiko",
+  "pathPrefix": "/yamabiko/",
+  "language": "en",
+  "paginationSize": 4,
+  "favicon": "/assets/images/favicon.ico",
+  "description": "Tracking my coding expeditions and other assorted ramblings",
+  "tags": ["eleventy", "blog", "development", "journal"],
+  "feed": {
+    "path": "/feed.xml"
+  },
+  "jsonfeed": {
+    "path": "/feed.json"
+  },
+  "author": {
+    "name": "soundwanders",
+    "email": "",
+    "url": "https://github.com/soundwanders"
+  },
+  "opengraph": {
+    "image": "/assets/images/article.png",
+    "type": "article"
+  }
+}
