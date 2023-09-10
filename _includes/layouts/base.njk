@@ -7,15 +7,17 @@
   <title>{{ title or metadata.title }}</title>
 
   <style>
-    {# Could not minify because font URLs need the | htmlBaseUrl helper.  #}
-    /* Outfit - latin */
+    {# Couldn't put this into a .css file for minification, because the font URLs need the | htmlBaseUrl helper.  #}
+    /* outfit-700 - latin */
     @font-face {
       font-family: 'Outfit';
       font-style: normal;
       font-weight: 700;
       src: local(''),
-          url('{{ "assets/fonts/Outfit-Bold.ttf" | htmlBaseUrl }}') format('ttf), /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('{{ "/assets/fonts/Outfit-Regular.ttf" | htmlBaseUrl }}') format('ttf'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('{{ "/assets/fonts/Outfit-Regular.ttf" | htmlBaseUrl }}') format('ttf'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
+
 
   {% if extraWideMedia==false %}{% set fullbleed = "" %}{% else %}{% set fullbleed = "assets/css/fullbleed.css" %}{% endif %}
 
@@ -87,12 +89,6 @@
     </ul>
 
     <p>&mdash; &copy; {% year %} {{ metadata.author.name }} &mdash;</p>
-
-    <ul class="photostream">
-        {%- for photo in photostream -%}
-        <li><a href="{{ photo.link }}"><img width="150" height="150" alt="thumbnail" src="{{ photo.img }}" loading="lazy"></a></li>&nbsp;&nbsp;&nbsp;
-        {%- endfor -%}
-    </ul>
   </footer>
 
 
