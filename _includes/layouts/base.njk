@@ -8,14 +8,24 @@
 
   <style>
     {# Couldn't put this into a .css file for minification, because the font URLs need the | htmlBaseUrl helper.  #}
-    /* outfit-700 - latin */
+    /* outfit-400 - latin */
     @font-face {
       font-family: 'Outfit';
       font-style: normal;
-      font-weight: 700;
+      font-weight: 400;
       src: local(''),
           url('{{ "/assets/fonts/Outfit-Regular.ttf" | htmlBaseUrl }}') format('ttf'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-          url('{{ "/assets/fonts/Outfit-Regular.ttf" | htmlBaseUrl }}') format('ttf'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+          url('{{ "/assets/fonts/Outfit-Regular.woff" | htmlBaseUrl }}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* outfit-700 - latin */
+    @font-face {
+      font-family: 'Outfit-Bold';
+      font-style: normal;
+      font-weight: 700;
+      src: local(''),
+          url('{{ "/assets/fonts/Outfit-Bold.ttf" | htmlBaseUrl }}') format('ttf'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('{{ "/assets/fonts/Outfit-Bold.woff" | htmlBaseUrl }}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
 
 
