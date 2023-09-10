@@ -1,7 +1,6 @@
 /* Overriding simple.css values */
 /* Visible at file:///home/mendhak/Projects/eleventy-satisfactory/node_modules/simpledotcss/simple.css */
 
-
 :root {
   /* Set sans-serif & mono fonts */
   --sans-font: Roboto,"Nimbus Sans L","Avenir Next",Avenir,"Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif;
@@ -93,8 +92,7 @@ footer ul {
 
 footer li {
   display: inline-block;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 1rem;
 }
 
 /* Styling for the excerpts appear below article titles on the index page */
@@ -135,9 +133,7 @@ article {
 }
 
 
-
 /* Navigation for Pagination */
-
 nav {
   display: inline;
   text-align: center;
@@ -218,13 +214,11 @@ nav :is(ol,ul) li {
   background-color: var(--notice-danger-bg);
 }
 
-
 .gist td {
   all: initial;
 }
 
 /* Video */
-
 div.video > iframe {
   aspect-ratio: 16 / 9;
   width: 100%;

@@ -1,7 +1,7 @@
 ---
 title: Ribbon Cutting Ceremony
 description: This post contains the first entry in our blog
-date: 2023-09-09
+date: 2023-09-10
 tags:
   - eleventy
   - welcome
