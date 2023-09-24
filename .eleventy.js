@@ -26,6 +26,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "node_modules/simplelightbox/dist/simple-lightbox.min.css": "simplelightbox/simple-lightbox.min.css" });
   eleventyConfig.addPassthroughCopy({ "node_modules/simplelightbox/dist/simple-lightbox.min.js": "simplelightbox/simple-lightbox.min.js" });
 
+  // Light and Dark Theme css files
+  eleventyConfig.addPassthroughCopy("assets/css/light-theme.css");
+  eleventyConfig.addPassthroughCopy("assets/css/dark-theme.css");
+
   //Since moving the CSS inline eleventy no longer watches it (because it's not being copied to output), so I had to include it as a watch target.
   //Adding it to addPassthroughCopy also means it's not watched.
   eleventyConfig.addWatchTarget("assets/css/");

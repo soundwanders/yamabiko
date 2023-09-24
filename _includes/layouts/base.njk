@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/{{ theme }}-theme.css">
+
   <title>{{ title or metadata.title }}</title>
 
   <style>
@@ -101,6 +103,7 @@
     <p>built with 💜</p>
   </footer>
 
+  <script src="/assets/js/theme-switcher.js"></script>
 
 {# Detects if images are in the content, it will add the simplelightbox JS/CSS if needed.  #}
 {% addLightBoxRefIfNecessary %}

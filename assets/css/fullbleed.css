@@ -12,8 +12,8 @@ div.video
   transform: translateX(-50%);
   position: relative;
   box-shadow: 0 10px 30px rgba(0,0,0,.15);
-  /* border: 1px solid #ffffff1a; */
-  --border: #ffffff1a;
+  /* border: 1px solid #fafafafff1a; */
+  --border: #fafafafff1a;
 }
 article > figure,
 div.gallery,
