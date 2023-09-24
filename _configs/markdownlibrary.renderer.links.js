@@ -30,7 +30,6 @@ module.exports = function (tokens, idx, options, env, self) {
 
 
 
-  //return defaultLinkRender(tokens, idx, options, env, self);
+  // Return defaultLinkRender(tokens, idx, options, env, self);
   return self.renderToken(tokens, idx, options);
-
 }

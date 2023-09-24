@@ -2,16 +2,21 @@
 /* Visible at file:///home/mendhak/Projects/eleventy-satisfactory/node_modules/simpledotcss/simple.css */
 
 :root {
-  /* Set sans-serif & mono fonts */
+  --bg: #f8f8f8; /* Light background color */
+  --text: #333; /* Light text color */
+  --accent: #007bff; /* Light accent color */
+  --text-light: #666; /* Light secondary text color */
   --sans-font: Roboto,"Nimbus Sans L","Avenir Next",Avenir,"Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif;
   --mono-font: "Ubuntu Mono", Consolas, Menlo, Monaco, "Andale Mono",  monospace;
 }
 
-/* Change some colors for dark mode */
+/* Dark theme CSS variables */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1c1917;
-    --accent: #55ee8d;
+    --bg: #1c1917; /* Dark background color */
+    --text: #fff; /* Dark text color */
+    --accent: #55ee8d; /* Dark accent color */
+    --text-light: #ccc; /* Dark secondary text color */
   }
 }
 
@@ -21,6 +26,8 @@ body {
   font-size: 1.25rem;
   line-height: 1.7;
   overflow-y: scroll; /* stops horizontal shift due to scrollbar */
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 /* Left align the site's title in the header */

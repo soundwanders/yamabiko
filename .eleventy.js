@@ -30,8 +30,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets/css/light-theme.css");
   eleventyConfig.addPassthroughCopy("assets/css/dark-theme.css");
 
-  //Since moving the CSS inline eleventy no longer watches it (because it's not being copied to output), so I had to include it as a watch target.
-  //Adding it to addPassthroughCopy also means it's not watched.
+  eleventyConfig.addPassthroughCopy("assets/js/");
+
+  // Since moving the CSS inline eleventy no longer watches it, have to include it as a watch target.
+  // Adding it to addPassthroughCopy also means it's not watched.
   eleventyConfig.addWatchTarget("assets/css/");
   eleventyConfig.addWatchTarget("assets/js/");
 
@@ -65,7 +67,7 @@ module.exports = function (eleventyConfig) {
   // Code syntax with Prism JS
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
-  //Converts most URLs to URLs with pathPrefix
+  // Converts most URLs to URLs with pathPrefix
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
   // Date used below posts
@@ -108,11 +110,11 @@ module.exports = function (eleventyConfig) {
   // And returns the output.
   eleventyConfig.addPairedShortcode("cssminification", require('./_configs/cssminification.shortcode'));
 
-  //Paired shortcode to display a notice panel like standard, error, warning, etc.
+  // Paired shortcode to display a notice panel like standard, error, warning, etc.
   let notice = require('./_configs/notice.shortcode');
   eleventyConfig.addPairedShortcode("notice", (data, noticeType) => notice(data, noticeType, markdownLibrary));
 
-  //Shortcode to render a button, optionally with a link
+  // Shortcode to render a button, optionally with a link
   let button = require('./_configs/button.shortcode');
   eleventyConfig.addShortcode("button", button);
 

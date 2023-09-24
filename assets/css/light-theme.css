@@ -1,13 +1,13 @@
 /* Reset some default styles */
 body {
-    background-color: #fafafa;
-    color: #333;
+    background-color: var(--light-bg);
+    color: var(--light-text);
 }
 
 /* Header styles */
 header {
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: var(--light-header-bg);
+    color: var(--light-text);
     padding: 20px;
 }
 
@@ -17,8 +17,8 @@ h1 {
 }
 
 #theme-toggle {
-    background-color: #007bff;
-    color: #fafafa;
+    background-color: var(--light-accent);
+    color: var(--light-button-text);
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -27,7 +27,7 @@ h1 {
 }
 
 #theme-toggle:hover {
-    background-color: #0056b3;
+    background-color: var(--light-button-hover);
 }
 
 /* Main content styles */

@@ -1,13 +1,13 @@
 /* Reset some default styles */
 body {
-    background-color: #181818;
-    color: #fafafa;
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
 }
 
 /* Header styles */
 header {
-    background-color: #222;
-    color: #fafafa;
+    background-color: var(--dark-header-bg);
+    color: var(--dark-text);
     padding: 20px;
 }
 
@@ -18,8 +18,8 @@ h1 {
 
 /* Button styles for dark theme */
 #theme-toggle {
-    background-color: #181818;
-    color: #fafafa;
+    background-color: var(--dark-button-bg);
+    color: var(--dark-button-text);
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -28,8 +28,9 @@ h1 {
 }
 
 #theme-toggle:hover {
-    background-color: #444;
+    background-color: var(--dark-button-hover);
 }
+
 /* Main content styles */
 main {
     padding: 20px;

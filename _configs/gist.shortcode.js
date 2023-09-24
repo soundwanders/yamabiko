@@ -51,11 +51,11 @@ module.exports = async function getGist(gistId, markdownLibrary) {
 
 
     if (language === "markdown") {
-      //Special case for MD, just render it outright.
+      // Special case for MD, just render it outright.
       mdCode += `\n${content}\n`;
     }
     else {
-      //Surround by code tags so it gets rendered with prism
+      // Surround by code tags so it gets rendered with prism
       mdCode += `\`${fileName}\`\n\`\`\`${language}\n${content}\n\`\`\`\n`;
     }
 

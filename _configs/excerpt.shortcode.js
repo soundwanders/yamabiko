@@ -12,7 +12,7 @@ module.exports = function (article) {
 
   const content = article.templateContent;
 
-  //Take the first paragraph until newline, remove HTML
+  // Take the first paragraph until newline, remove HTML
   let words = content.slice(0, content.indexOf("\n")).replace(/<[^>]*>?/gm, '').split(/\s+/);
   let suffix = '';
 
