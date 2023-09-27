@@ -1,22 +1,27 @@
 /* Overriding simple.css values */
 /* Visible at file:///home/mendhak/Projects/eleventy-satisfactory/node_modules/simpledotcss/simple.css */
-
+/* Default CSS variables */
 :root {
-  --bg: #f8f8f8; /* Light background color */
-  --text: #333; /* Light text color */
-  --accent: #007bff; /* Light accent color */
+  --light-bg: #f8f8f8; /* Light background color */
+  --light-text: #333; /* Light text color */
+  --accent: #ff5e5e; /* Light accent color */
   --text-light: #666; /* Light secondary text color */
-  --sans-font: Roboto,"Nimbus Sans L","Avenir Next",Avenir,"Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif;
-  --mono-font: "Ubuntu Mono", Consolas, Menlo, Monaco, "Andale Mono",  monospace;
+  --light-header-bg: #f0f0f0; /* Light header background color */
+  --light-button-bg: #ff5e5e; /* Light button background color */
+  --light-button-text: #fafafa; /* Light button text color */
+  --light-button-hover: #ff5e5e; /* Light button hover background color */
 }
 
 /* Dark theme CSS variables */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1c1917; /* Dark background color */
-    --text: #fff; /* Dark text color */
+    --dark-bg: #1c1917; /* Dark background color */
+    --dark-text: #fff; /* Dark text color */
     --accent: #55ee8d; /* Dark accent color */
-    --text-light: #ccc; /* Dark secondary text color */
+    --dark-header-bg: #222; /* Dark header background color */
+    --dark-button-bg: #55ee8d; /* Dark button background color */
+    --dark-button-text: #181818; /* Dark button text color */
+    --dark-button-hover: #3dc56f; /* Dark button hover background color */
   }
 }
 
@@ -34,7 +39,16 @@ body {
 body > header {
   text-align: left;
   padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
 }
+
+/* Left align the site's title in the header */
+body > footer {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
 /* Styling for site title */
 body > header > a {
   max-width: 1200px;
@@ -66,8 +80,6 @@ h1,h2,h3,h4,h5,h6 {
   font-family: Outfit, serif;
   margin-bottom: 0.25em;
 }
-
-
 
 /* This class is added by the markdown-it-anchor library. Removing the hyperlink color from headers */
 a.header-anchor {
@@ -139,14 +151,12 @@ article {
   background: black !important;
 }
 
-
 /* Navigation for Pagination */
 nav {
   display: inline;
   text-align: center;
   margin-top: 2rem;
   width: 100%;
-
 }
 
 nav :is(ol,ul) li {
@@ -156,7 +166,6 @@ nav :is(ol,ul) li {
   text-decoration: none;
   margin: 0 0.5rem;
   float: right;
-
 }
 
 /* Alert info warning error panels */
