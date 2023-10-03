@@ -30,6 +30,15 @@
           url('{{ "/assets/fonts/Outfit-Bold.woff" | htmlBaseUrl }}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
 
+    .image-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+    }
 
   {% if extraWideMedia==false %}{% set fullbleed = "" %}{% else %}{% set fullbleed = "assets/css/fullbleed.css" %}{% endif %}
 
@@ -107,6 +116,7 @@
   </footer>
 
   <script src="/assets/js/theme-switcher.js"></script>
+  <script type="module" src="./_site/bundle.js"></script>
 
 {# Detects if images are in the content, it will add the simplelightbox JS/CSS if needed.  #}
 {% addLightBoxRefIfNecessary %}

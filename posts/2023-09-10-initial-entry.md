@@ -11,6 +11,6 @@ tags:
 
 # The beginning of our journey
 
-This is the start of our blogging expedition. Today we built this site using mendhak's `Eleventy Satisfaction` template, then we tinkered with the Bun JavaScript runtime because it's fun to try new things.
+This is the start of our blogging expedition. Today we built this site using mendhak's `Eleventy Satisfactory` template, then we tinkered with the Bun JavaScript runtime because it's fun to try new things.
 
 *fin* ᓚᘏᗢ

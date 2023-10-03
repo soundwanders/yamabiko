@@ -7,7 +7,8 @@
     "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
     "start": "ELEVENTY_ENV=development npx @11ty/eleventy --serve --watch --incremental",
     "debug": "DEBUG=* npx @11ty/eleventy",
-    "stop": "kill -9 $(lsof -t -i :8080)"
+    "stop": "kill -9 $(lsof -t -i :8080)",
+    "esbuild": "node esbuild.config.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "@11ty/eleventy": "^2.0.0-beta.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@splinetool/runtime": "^0.9.460",
     "clean-css": "^5.3.2",
     "luxon": "^3.3.0",
     "markdown-it": "^13.0.1",
@@ -39,6 +41,7 @@
     "node": ">=18.0.0"
   },
   "devDependencies": {
+    "esbuild": "^0.19.4",
     "smashtest": "^1.8.4"
   }
 }
