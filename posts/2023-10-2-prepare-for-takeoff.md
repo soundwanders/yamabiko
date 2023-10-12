@@ -13,7 +13,7 @@ tags:
 
 # Welcoming our Spline Mini-Room to the Family
 
-It felt good to place the finishing touches on our Spline mini-room scene over the weekend. Now it's time to get this bad boy up and running. Implementing our 3D scene into our Eleventy website has posed a few challenges, mainly stemming from the fact that Eleventy is not able to handle the import of ES6 modules out of the box.
+It felt good to place the finishing touches on our Spline mini-room scene over the weekend. Now it's time to get this bad boy up and running. Implementing our 3D scene into our Eleventy website to try out our shiny new toy has posed a few challenges, mainly stemming from the fact that Eleventy is not able to handle the import of ES6 modules out of the box.
 
 First, we created our `spline.js` file, which ended up being pretty straightforward using the `<canvas>` HTML element to help render our scene.
 
@@ -52,9 +52,9 @@ esbuild.build({
 
 As you can see, the `esbuild.config.js` file simply generates the bundle and pushes it to our output directory (`_site`). To get it over the finish line, we have to overcome a small error. We are currently dealing with `Loading module from “http://localhost:8080/_site/bundle.js” was blocked because of a disallowed MIME type (“text/html”).` After further investigation, it appears that the path to our script was incorrect. Instead of including `_site` in our path, our script ends up looking like this: `<script type="module" src="/bundle.js"></script>`
 
-With that, our interactive Spline mini room scene is successfully imported with its full interactivity included.
+With that, our interactive Spline mini room scene is successfully imported with its full interactivity included. Which is nice, but it's more of a test drive than a "mission complete".
 
-We will have to redesign our layout to incorporate it into our site design, but that's a task for another day. Thanks for reading.
+For our *actual* use-case, we will be implementing our mini room scene on my personal website, as part of the overall redesign. Stay tuned for that post, coming soon hot off the press. Thanks for reading.
 
 
 *fin* ᓚᘏᗢ
