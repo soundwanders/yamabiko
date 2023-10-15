@@ -1,35 +1,39 @@
 ---
 title: Extreme ~~Home~~ Site Makeover
-description: Beautifying our website
+description: Getting our site up to snuff
 date: 2023-10-12
 tags:
   - portfolio
   - next.js
   - typescript
   - tailwind
+  - spline
 
 ---
 
-# Extreme ~~Home~~ Site Makeover
+# Beautifying Our Personal Site
 
-Let's go on a little adventure today. We'll explore three intriguing chapters detailing how we brought our idea to life, creating a shiny new thing.
+Today we'll have a little fun as we dive into the process of getting my personal website up to snuff. It has been a long time since I first created it, and I like to think I've come a long way since then. While we will be updating it, we will also simplify our site to better suit the tone I am going for.
 
-## Chapter 1: Redesigning with Next.js, TypeScript, and Tailwind
+We'll slice up our journey into three distinct chapters detailing how we brought my vision to life, creating a shiny new thing for us to marvel at 🥳.
 
-To make this endeavor a success, we leveraged Next.js, version 13. Why Next.js? It's an open-source React framework that simplifies building web applications. I'm a big fan of Next.js, I appreciate the ease of use and well-written documentation, so I can spend more time coding and less time head-scratching.
+## Chapter 1: Retooling with Next.js, TypeScript, Tailwind, and Spline
 
-We also added TypeScript and Tailwind CSS into the mix. Tailwind is something that I have plenty of experience with, but I have really wanted to implement TypeScript in more projects. 
+To make this endeavor a success, we leveraged Next.js, version 13. Why Next.js? The open-source React framework simplifies building web applications and does a lot of the heavy lifting for us. I'm a big fan, and I appreciate how it's a tool that allows me to spend more time coding and less time head-scratching.
 
 TypeScript, a superset of JavaScript that has become incredibly popular as of late, ensures our code is robust and error-free. We keep all of our errors inside the code editor, where they'll never get to see the light of day. That's a beautiful thing. 
+
+I have also added Tailwind CSS into the mix. Tailwind is all over the place right now, and it's something that I have plenty of experience with so I like to think I know a little bit about how to wield it to accomplish my goals.
 
 To add a touch of magic, we crafted a Spline mini room 3D-rendered scene for our hero section, tying everything together to complete our minimalistic design. I am a firm believer that sometimes, <span style="color:#a64dff">simple is better</span>.
 
 
 ## Chapter 2: The Spline Scene with React and Suspense
 
-As we ventured further into web development, we discovered Spline scenes. These captivating 3D renderings breathe life into our website. But how do we bring them to life?
+As we ventured further into development, I discovered Spline. These captivating 3D renderings breathe life into our website and add a nice artistic cherry on top of the sundad.
 
-Using React, a popular JavaScript library, we unlocked a new dimension with Spline. To ensure a seamless journey, we employed a magical component called `Suspense`. It acts as a guardian, ensuring the scene appears only when it's ready.
+Using React, a popular JavaScript library, we unlocked a new dimension with Spline. To ensure a seamless journey, we employed a somewhat magical component called `Suspense`. It acts as a gatekeeper, ensuring the scene appears only when it's ready and fully loaded.
+
 
 ```javascript
 import React, { Suspense } from 'react';
@@ -68,8 +72,10 @@ const goodreadsLinkMatch = /<link>(.*?)<\/link>/i.exec(item.content ?? '');
 
 ### Goodreads RSS: The Literary Scroll
 
-The Goodreads RSS feed is a scroll filled with tales of reading adventures. We got gritty with our data parsing to extract our book's title and link, so I can include a little blurb about the book we're currently into.
+Using `DOMParser`, I was able to create a section that sifts through my Goodreads profile's RSS feed data and pulls out the title of the book I am currently reading so we can place it inside a little blurb in our hero section. Using the DOMParser required a little extra leg work, but was an intentional decision to prevent the use of additional dependencies and reduce overhead. By dynamically generating the book title, we avoid having to manually update the website every time that I start a new book.
 
-And So Our Tale Ends
+#### At the End of the Rainbow
 
-In the world of web development, every line of code is a brushstroke on the canvas of the internet. Our journey brought us Next.js enchantments, 3D Spline scenes, and Goodreads literary adventures. There's always something new to discover, and our website is a reflection of the willigness to evolve and continue to try scary new things. Spline turned out to be a blast to use, and I can finally say that I'm starting to feel more comfortable with TypeScript. Onto bigger and better things, but this website overhaul was an awesome first step. Cheers 🪄📚🌐
+In the world of web development, every line of code is a brushstroke on the canvas that is the internet. It's an ocean out there, with rapidly changing currents and shifting seas. I'm just sailing along at my own pace, trying to enjoy the journey and soak it all in.
+
+There's always something new to discover, and the new website is a reflection of the progress I've made over the last couple of years. Spline turned out to be a blast to use, and I can finally say that I'm starting to feel more comfortable with TypeScript. Onto bigger and better things, but this website overhaul was an awesome first step. Cheers 🧙‍♂️🎉
