@@ -1,10 +1,22 @@
-# Redesigning a Personal Website
+---
+title: Extreme ~~Home~~ Site Makeover
+description: Beautifying our website
+date: 2023-10-12
+tags:
+  - portfolio
+  - next.js
+  - typescript
+  - tailwind
+
+---
+
+# Extreme ~~Home~~ Site Makeover
 
 Let's go on a little adventure today. We'll explore three intriguing chapters detailing how we brought our idea to life, creating a shiny new thing.
 
-## Chapter 1: Redesigning with Next.js, TypeScript, and Tailwind CSS
+## Chapter 1: Redesigning with Next.js, TypeScript, and Tailwind
 
-To make this endeavor a success, we leveraged Next.js, version 13. Why Next.js? It's an open-source React framework that simplifies building web applications. I'm a big Next.js fanboy, and I'm not afraid to admit that.
+To make this endeavor a success, we leveraged Next.js, version 13. Why Next.js? It's an open-source React framework that simplifies building web applications. I'm a big fan of Next.js, I appreciate the ease of use and well-written documentation, so I can spend more time coding and less time head-scratching.
 
 We also added TypeScript and Tailwind CSS into the mix. Tailwind is something that I have plenty of experience with, but I have really wanted to implement TypeScript in more projects. 
 

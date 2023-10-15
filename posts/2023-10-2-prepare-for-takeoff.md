@@ -1,6 +1,6 @@
 ---
 title: Preparing for Takeoff
-description: Implementing our 3D scene
+description: Implementing our Spline 3D scene
 date: 2023-10-02
 tags:
   - spline
