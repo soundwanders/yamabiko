@@ -13,9 +13,9 @@ tags:
 
 # Beautifying Our Personal Site
 
-Today we'll have a little fun as we dive into the process of getting my personal website up to snuff. It has been a long time since I first created it, and I like to think I've come a long way since then. While we will be updating it, we will also simplify our site to better suit the tone I am going for.
+Today we'll have a little fun as we dive into the process of getting my personal website up to snuff. It has been a long time since I first created it, and I like to think I've come a long way since then. While I will be updating it, I will also simplify our site to better suit the tone I am going for.
 
-We'll slice up our journey into three distinct chapters detailing how we brought my vision to life, creating a shiny new thing for us to marvel at 🥳.
+I'll slice up our journey into three distinct chapters detailing how I brought my vision to life, creating a shiny new thing for us to marvel at 🥳.
 
 ## Chapter 1: Retooling with Next.js, TypeScript, Tailwind, and Spline
 
@@ -30,9 +30,9 @@ To add a touch of magic, we crafted a Spline mini room 3D-rendered scene for our
 
 ## Chapter 2: The Spline Scene with React and Suspense
 
-As we ventured further into development, I discovered Spline. These captivating 3D renderings breathe life into our website and add a nice artistic cherry on top of the sundad.
+As we ventured further into development, I discovered `Spline`. These captivating 3D renderings breathe life into our website and add a nice artistic cherry on top of the sundae.
 
-Using React, a popular JavaScript library, we unlocked a new dimension with Spline. To ensure a seamless journey, we employed a somewhat magical component called `Suspense`. It acts as a gatekeeper, ensuring the scene appears only when it's ready and fully loaded.
+Using an ES6 import to load our scene from the `@spline/runtime` library, we unlocked a new dimension to really spice things up. To ensure a seamless journey, we employed a somewhat magical component called `Suspense`. It acts as a gatekeeper, ensuring the scene appears only when it's ready and fully loaded.
 
 
 ```javascript
@@ -72,10 +72,15 @@ const goodreadsLinkMatch = /<link>(.*?)<\/link>/i.exec(item.content ?? '');
 
 ### Goodreads RSS: The Literary Scroll
 
-Using `DOMParser`, I was able to create a section that sifts through my Goodreads profile's RSS feed data and pulls out the title of the book I am currently reading so we can place it inside a little blurb in our hero section. Using the DOMParser required a little extra leg work, but was an intentional decision to prevent the use of additional dependencies and reduce overhead. By dynamically generating the book title, we avoid having to manually update the website every time that I start a new book.
+Using `DOMParser`, I was able to create a section that sifts through my Goodreads profile's RSS feed data and pulls out the title of the book I am currently reading so we can place it inside a little blurb in our hero section.
+
+Using DOMParser required a little extra leg work, but was an intentional decision to prevent the use of additional dependencies and reduce overhead. By dynamically generating the book title, we avoid having to manually update the website every time that I start a new book.
 
 #### At the End of the Rainbow
 
-In the world of web development, every line of code is a brushstroke on the canvas that is the internet. It's an ocean out there, with rapidly changing currents and shifting seas. I'm just sailing along at my own pace, trying to enjoy the journey and soak it all in.
+In the world of web development, every line of code is a brushstroke on the canvas that is the internet. It's an ocean out there, with rapidly changing currents and shifting seas. I'm just sailing along at my own pace, trying to enjoy the journey and soak it all in. ⛵️
 
-There's always something new to discover, and the new website is a reflection of the progress I've made over the last couple of years. Spline turned out to be a blast to use, and I can finally say that I'm starting to feel more comfortable with TypeScript. Onto bigger and better things, but this website overhaul was an awesome first step. Cheers 🧙‍♂️🎉
+There's always something new to discover, and the new website is a reflection of the progress I've made over the last couple of years. Spline turned out to be a blast to use, and I can finally say that I'm starting to feel more comfortable with TypeScript. Onto bigger and better things, but this website overhaul was an awesome first step.
+
+Cheers 🧙‍♂️🎉
+*fin* ᓚᘏᗢ
