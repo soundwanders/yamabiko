@@ -1,6 +1,6 @@
 ---
 title: Clash of the Titans
-description: Analyzing DOM Parsing vs. RSS Parser
+description: Analyzing the DOMParser vs. RSS Parser
 date: 2023-10-15
 tags:
   - dom parsing
@@ -9,7 +9,7 @@ tags:
 
 ---
 
-# Clash of the Titans: DOM Parsing vs. RSS Parser
+# DOMParser vs. RSS Parser
 
 Imagine trying to update a part of your website, simply adding a small blurb about the book you are currently reading. to dynamically generate this text, we want to pull the book we have set to "Currently Reading" on our Goodreads profile. 
 

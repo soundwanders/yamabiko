@@ -2,14 +2,14 @@
 /* Visible at file:///home/mendhak/Projects/eleventy-satisfactory/node_modules/simpledotcss/simple.css */
 /* Default CSS variables */
 :root {
-  --light-bg: #f8f8f8; /* Light background color */
+  --light-bg: #e5e7eb; /* Light background color */
   --light-text: #333; /* Light text color */
-  --accent: #ff5e5e; /* Light accent color */
+  --accent: #ff4848; /* Light accent color */
   --text-light: #666; /* Light secondary text color */
   --light-header-bg: #f0f0f0; /* Light header background color */
   --light-button-bg: #ff5e5e; /* Light button background color */
   --light-button-text: #fafafa; /* Light button text color */
-  --light-button-hover: #ff5e5e; /* Light button hover background color */
+  --light-button-hover: #ff4848; /* Light button hover background color */
 }
 
 /* Dark theme CSS variables */

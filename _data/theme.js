@@ -1,3 +1,3 @@
 module.exports = {
-    theme: "light", // Default to light theme
+    theme: "dark", // Default to dark theme
 };
