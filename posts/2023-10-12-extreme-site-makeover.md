@@ -83,4 +83,6 @@ In the world of web development, every line of code is a brushstroke on the canv
 There's always something new to discover, and the new website is a reflection of the progress I've made over the last couple of years. Spline turned out to be a blast to use, and I can finally say that I'm starting to feel more comfortable with TypeScript. Onto bigger and better things, but this website overhaul was an awesome first step.
 
 Cheers 🧙‍♂️🎉
+
+
 *fin* ᓚᘏᗢ
