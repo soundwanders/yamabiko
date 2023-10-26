@@ -72,7 +72,7 @@ const goodreadsLinkMatch = /<link>(.*?)<\/link>/i.exec(item.content ?? '');
 
 Using DOMParser required a little extra leg work, but was an intentional decision to prevent the use of additional dependencies and reduce overhead.
 
-If you'd like to read a little bit more about the process of using the DOMParser to accomplish our goal, I enclurage you to visit my other blog post (RSS Showdown)[https://yamabiko.vercel.app/rss-showdown/].
+If you'd like to read a little bit more about the process of using the DOMParser to accomplish our goal, I enclurage you to visit my other blog post [RSS Showdown](https://yamabiko.vercel.app/rss-showdown/).
 
 
 #### We Reach End of the Rainbow
