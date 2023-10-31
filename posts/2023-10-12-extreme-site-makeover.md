@@ -60,23 +60,22 @@ With the `Suspense` component, we guarantee a smooth transition as our Spline sc
 
 ## Chapter 3: Unveiling Goodreads Reading Adventure
 
-In our pursuit of a magical website, we aimed to share our literary adventures. Thus, we decided to display the book we're currently reading from our Goodreads profile. But how did we extract this precious information?
+While the goal was always simplciity, I aimed to share my literary adventures because I'm a huge bookworm. I settled on the decision to display the book we're currently reading, pulling the book title from our Goodreads profile. I don't want to have to manually update the book each time I begin a new one, but I had to decide what method to use to get the job done.
 
-We turned to the Goodreads RSS feed, a treasure trove of reading updates. With a dash of code, we uncovered the book's title and a link to our Goodreads page. And just like that, our website came to life with our current reading escapade.
+We could have used something like a web scraping script to extract what we need, but it's a little less ethical than the solution I settled on. I turned to the Goodreads RSS feed to access all my profile's data, pulling out the little bit of info that we need without disturbing the peace. With a dash of code and some regular expressions,we've got what we need. 
 
 ```javascript
-// Parsing the Goodreads RSS feed
+// Parsing the book title from RSS data
 const bookTitleMatch = /<title>(.*?)<\/title>/i.exec(item.content ?? '');
 const goodreadsLinkMatch = /<link>(.*?)<\/link>/i.exec(item.content ?? '');
 ```
 
-### Goodreads RSS: The Literary Scroll
+Using DOMParser required a little extra leg work, but was an intentional decision to prevent the use of additional dependencies and reduce overhead.
 
-Using `DOMParser`, I was able to create a section that sifts through my Goodreads profile's RSS feed data and pulls out the title of the book I am currently reading so we can place it inside a little blurb in our hero section.
+If you'd like to read a little bit more about the process of using the DOMParser to accomplish our goal, I enclurage you to visit my other blog post [RSS Showdown](https://yamabiko.vercel.app/rss-showdown/).
 
-Using DOMParser required a little extra leg work, but was an intentional decision to prevent the use of additional dependencies and reduce overhead. By dynamically generating the book title, we avoid having to manually update the website every time that I start a new book.
 
-#### At the End of the Rainbow
+#### We Reach End of the Rainbow
 
 In the world of web development, every line of code is a brushstroke on the canvas that is the internet. It's an ocean out there, with rapidly changing currents and shifting seas. I'm just sailing along at my own pace, trying to enjoy the journey and soak it all in. ⛵️
 
