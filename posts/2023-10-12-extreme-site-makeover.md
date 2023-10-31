@@ -11,9 +11,9 @@ tags:
 
 ---
 
-# Beautifying Our Personal Site
+# Beautifying My Personal Site
 
-Today we'll have a little fun as we dive into the process of getting my personal website up to snuff. It has been a long time since I first created it, and I like to think I've come a long way since then. While I will be updating it, I will also simplify our site to better suit the tone I am going for.
+Today we'll have a little fun as we dive into the process of getting my personal website up to snuff. It has been a couple of years since I first created it, and I like to think I've come a long way since then! The goal was to trim the fat, keep it lightweight, and craft a minimal-style design that feels more like "me". I'm calling it my digital oasis.
 
 I'll slice up our journey into three distinct chapters detailing how I brought my vision to life, creating a shiny new thing for us to marvel at 🥳.
 
@@ -60,9 +60,9 @@ With the `Suspense` component, we guarantee a smooth transition as our Spline sc
 
 ## Chapter 3: Unveiling Goodreads Reading Adventure
 
-While the goal was always simplciity, I aimed to share my literary adventures because I'm a huge bookworm. I settled on the decision to display the book we're currently reading, pulling the book title from our Goodreads profile. I don't want to have to manually update the book each time I begin a new one, but I had to decide what method to use to get the job done.
+While the goal was always simplciity, I aimed to share my literary adventures because I'm a huge bookworm. I settled on the decision to display the book we're currently reading, pulling the book title from our Goodreads profile. I don't want to have to manually update the book each time I begin a new one, that was clear, but I did have to decide what method to use to get the job done simply and effectively.
 
-We could have used something like a web scraping script to extract what we need, but it's a little less ethical than the solution I settled on. I turned to the Goodreads RSS feed to access all my profile's data, pulling out the little bit of info that we need without disturbing the peace. With a dash of code and some regular expressions,we've got what we need. 
+We could have used something like a web scraping script to extract what we need, but it's a little less ethical than the solution I settled on: `RSS`! I turned to the Goodreads RSS feed to access all my profile's data, pulling out the little bit of info that we need without disturbing the peace. With a dash of code and some regular expressions,we've got what we need. 
 
 ```javascript
 // Parsing the book title from RSS data
@@ -72,7 +72,7 @@ const goodreadsLinkMatch = /<link>(.*?)<\/link>/i.exec(item.content ?? '');
 
 Using DOMParser required a little extra leg work, but was an intentional decision to prevent the use of additional dependencies and reduce overhead.
 
-If you'd like to read a little bit more about the process of using the DOMParser to accomplish our goal, I enclurage you to visit my other blog post [RSS Showdown](https://yamabiko.vercel.app/rss-showdown/).
+If you'd like to read a little bit more about the process of using the DOMParser to accomplish our goal, I encourage you to visit my other blog post 👉 [RSS Showdown](https://yamabiko.vercel.app/rss-showdown/). 
 
 
 #### We Reach End of the Rainbow
