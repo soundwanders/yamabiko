@@ -6,7 +6,8 @@ article > figure,
 div.gallery,
 div.video
 {
-  width: 100vw;
+  width: 100%;
+  padding: 1rem 2rem;
   max-width: 65rem;
   margin-left: 50%;
   transform: translateX(-50%);
