@@ -1,0 +1,87 @@
+---
+title: The Xs and Os:\ Refining Our CFBD API Fetch Request
+description: Building a function to manipulate strings and ensure error-free API interactions
+date: 2023-12-04
+tags:
+  - svelte
+  - sveltekit
+  - fieldwing
+  - college football
+  - web application
+  - CFBD API
+  - api integration
+  - string manipulation
+---
+
+#  The Xs and Os: Refining Our CFBD API Fetch Request
+
+Hello again! 👋 Continuing from our [last post](https://www.jcoletta.com/sveltekit-magic/), I'm still plugging away at Fieldwing development. This week, we will be diving into the problem refining the search for selected teams by omitting mascot names from each API fetch request. Let's take a look at the problem, then explore the steps we took to enhance this crucial component.
+
+## Throwing the Challenge Flag
+
+In our interactions with the College Football Data (CFBD) API, a hurdle emerged in the search query for selected teams. We allow the user to select teams from a list, and any team they select is added into a `selectedTeams` writable [Svelte store](https://svelte.dev/docs/svelte-store). The team contains both the school name and the team name, or in other words the mascot. However, come to find out that the CFBD API is only able to process school names, so we had to ditch the mascot names before submitting our fetch request. 
+
+For example, if the user wanted to search for game results for the `Clemson  Tigers`, the API returned an empty array *unless* we filtered the `Tigers` out of the `selectedTeams` string, which would result in the submission of **only the school name**. In this case `Clemson` was the key to our data that was locked behind CFBD's doors, but we had to manipulate the string to get rid of the mascot name before we could make a proper fetch request. Attempts to submit the full string led to empty responses for certain team selections, which snowballed into undefined data, API errors, and all of that other fun stuff. So there we have it, now let's get problem solving.
+
+## Reviewing the Tape
+
+The first play from the line of scrimmage involved dissecting the full selected team string, filtering out words present in the array which contained of all of the mascot names, and then reassembling the remaining words into the school name, which we submit in our fetch request URL. I was splitting the full team string into individual words, adding spaces to separate them, and filtering out words that matched any strings present in the mascot names array. Let's take a look at the first attempt, to help you visualize idea the solution that ended up giving us trouble:
+
+```typescript
+function getSchoolName(fullTeamName: string): string {
+  // Here we extract the school name from the full team name
+  const parts = fullTeamName.split(' ');
+
+  // Remove common mascots from the team name
+  const filteredParts = parts.filter(part => !mascotNames.includes(part));
+
+  return filteredParts.length > 1 ? filteredParts.slice(0, -1).join(' ') : fullTeamName;
+}
+```
+
+Seems great, right? Probably not if you're a better programmer than me, but that's beside the point.
+
+Unfortunately, this method fell short when dealing with multi-word school or mascot names, leading to partial removal of the mascot name. So, while `Akron Zips` was able to be processed, a multi-word string such as `Alabama Crimson Tide` would end up looking something like `Alabama Crimson`, which returned an empty array instead of the desired response. The unexpected behavior occurred when the school name had multiple words, as the filtering logic treated each word independently. Back to the drawing board!
+
+So, instead of filtering each word, I decided to iterate over the entire selected team and check if the full remaining substring is a mascot name. The main goal was to make sure the remaining substring (created by combining the remaining words) did not contain any of the mascot names. A substring that matched any of our mascot names resulted in removal, and eventually, if all goes according to plan, we would only be left with the school name.
+
+Let's take a peek at the updated version of the `getSchoolName` function to help visualize the changes:
+
+```typescript
+function getSchoolName(fullTeamName: string): string {
+	// Split the full team name into parts
+	const parts = fullTeamName.split(' ');
+
+	// Iterate over the parts to filter out mascots from the team name
+	let filteredParts: string[] = [];
+	for (let i = 0; i < parts.length; i++) {
+		const remainingSubstring = parts.slice(i).join(' ');
+
+		if (!mascotNames.includes(remainingSubstring)) {
+			filteredParts.push(parts[i]);
+		}
+	}
+
+	return filteredParts.join(' ');
+}
+```
+
+It's a practical, simple solution that had a big impact. Touchdown! 🎉
+
+## Advantages of the Update
+
+Our new and improved code helps accurately handle multi-word school names in the context of processing our selected teams Svelte store. The primary objective? Interacting seamlessly with the College Football Data (CFBD) API. Pretty sweet!
+
+Just to circle back and reiterate: we needed clean school names devoid of school mascot references to correctly fetch game data from the CFBD API. To achieve this, we devised a function to filter out and discard mascot names from our selected teams, ensuring that the subsequent fetch request URL would only contain school names, allowing us to receive a proper, error-free response from the API.
+
+In summary, the changes guarantee that our data retrieval process aligns with the expectations for the API's URL, which allows us to continue our journey down the sidelines and bring it on home. Alright, I promise that's enough corny football references for one day.
+
+## The Play Review
+
+Through iterative problem-solving and deliberate, effective adjustments to the way we are handling our data, I'm happy to say that we have eliminated the inaccurate filtering in our API fetch requests. For now. 🤞
+
+I will continue working on expanding Fieldwing's functionality over the next couple weeks, while juggling the busy holiday season. I am planning on creating a new feature that will allow users to compare the historical head-to-head results of two teams to see who has had the upper-hand over the years. I'm only adding this new feature to antagonize Ohio State and Michigan fans. 🤫
+
+Thanks for reading, I appreciate you. Take care!
+
+*fin* ᓚᘏᗢ
