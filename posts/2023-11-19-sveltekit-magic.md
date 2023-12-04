@@ -22,10 +22,7 @@ So, we have decided on SvelteKit as our vehicle for growth 🚀. With that settl
 It's not a revolutionary application of course, but it's one that I think a few of my friends and family will enjoy messing around with. After all, the goal here is to learn, not change the world. Gotta stretch the brain out a little from time to time! 🧠
 
 Our application is not exactly laser-focused yet, as I have two very different paths that I am considering. Let's hit the brakes and take a look at our fork in the road:
-
-1. Users can sign up to track the game results and statistics of their favorite college football team on a weekly basis. Users can sign up via e-mail to receive a weekly message containing their team's game results and important statistics such as touchdown scoreres, turnovers, and so on. We could schedule our weekly communications using a 🤖 Cron job, or another similar method.
-
-2. Users can select two teams to compare and we will fetch the history of their head-to-head matchups. We'll want to display things like the total win-loss records, scores of each game, the dates they played, and any other interesting statistics that will give a snapshot of the battles over the years. For example, when a Michigan fan wants to brag about how they beat their bitter rival Ohio State `36-0` in **1897**, they can send (*insert Ohio State fan name here*) a link to Fieldwing containing the all-time history of the two school's meetings.
+Thanks for joining us on this journey!s to brag about how they beat their bitter rival Ohio State `36-0` in **1897**, they can send (*insert Ohio State fan name here*) a link to Fieldwing containing the all-time history of the two school's meetings.
 
 
 ## 📒 The Playbook
