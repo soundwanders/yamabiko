@@ -1,6 +1,6 @@
 ---
-title: The Xs and Os:\ Refining Our CFBD API Fetch Request
-description: Building a function to manipulate strings and ensure error-free API interactions
+title: Fieldwing -- The Xs and Os
+description: Refining our fetch request to ensure error-free API interactions
 date: 2023-12-04
 tags:
   - svelte
@@ -8,9 +8,10 @@ tags:
   - fieldwing
   - college football
   - web application
-  - CFBD API
   - api integration
+  - CFBD API
   - string manipulation
+  - javascript filter method
 ---
 
 #  The Xs and Os: Refining Our CFBD API Fetch Request
@@ -23,7 +24,7 @@ In our interactions with the College Football Data (CFBD) API, a hurdle emerged 
 
 For example, if the user wanted to search for game results for the `Clemson  Tigers`, the API returned an empty array *unless* we filtered the `Tigers` out of the `selectedTeams` string, which would result in the submission of **only the school name**. In this case `Clemson` was the key to our data that was locked behind CFBD's doors, but we had to manipulate the string to get rid of the mascot name before we could make a proper fetch request. Attempts to submit the full string led to empty responses for certain team selections, which snowballed into undefined data, API errors, and all of that other fun stuff. So there we have it, now let's get problem solving.
 
-## Reviewing the Tape
+## The Play Is Under Review
 
 The first play from the line of scrimmage involved dissecting the full selected team string, filtering out words present in the array which contained of all of the mascot names, and then reassembling the remaining words into the school name, which we submit in our fetch request URL. I was splitting the full team string into individual words, adding spaces to separate them, and filtering out words that matched any strings present in the mascot names array. Let's take a look at the first attempt, to help you visualize idea the solution that ended up giving us trouble:
 
@@ -41,9 +42,9 @@ function getSchoolName(fullTeamName: string): string {
 
 Seems great, right? Probably not if you're a better programmer than me, but that's beside the point.
 
-Unfortunately, this method fell short when dealing with multi-word school or mascot names, leading to partial removal of the mascot name. So, while `Akron Zips` was able to be processed, a multi-word string such as `Alabama Crimson Tide` would end up looking something like `Alabama Crimson`, which returned an empty array instead of the desired response. The unexpected behavior occurred when the school name had multiple words, as the filtering logic treated each word independently. Back to the drawing board!
+Unfortunately, this method fell short when dealing with multi-word school or mascot names, leading to cases where there was only partial removal of the mascot name. So, while `Clemson Tigers` was able to be successfully processed, a multi-word string such as `Alabama Crimson Tide` would end up looking something like `Alabama Crimson`, which returned an empty array as our API response, instead of the desired game data. The unexpected behavior occurred when the school name had multiple words, as the filtering logic treated each word independently. Back to the drawing board!
 
-So, instead of filtering each word, I decided to iterate over the entire selected team and check if the full remaining substring is a mascot name. The main goal was to make sure the remaining substring (created by combining the remaining words) did not contain any of the mascot names. A substring that matched any of our mascot names resulted in removal, and eventually, if all goes according to plan, we would only be left with the school name.
+So, instead of filtering each word, I decided to iterate over the entire selected team and check if the full remaining substring is a mascot name. The main goal was to make sure the remaining substring (created by combining the remaining words) did not contain any of the mascot names. A substring that matched any of our mascot names resulted in removal, and eventually we would only be left with the school name.
 
 Let's take a peek at the updated version of the `getSchoolName` function to help visualize the changes:
 
@@ -65,22 +66,64 @@ function getSchoolName(fullTeamName: string): string {
 	return filteredParts.join(' ');
 }
 ```
+Time to get into the nitty-gritty and break down this function to understand exactly what I had to do to bring it on home:
+
+Certainly! Let's break down the `getSchoolName` function step by step:
+
+```typescript
+function getSchoolName(fullTeamName: string): string {
+  // Step 1: Split the full team name into an array of parts
+  const parts = fullTeamName.split(' ');
+
+  // Step 2: Remove common mascots from the team name
+  const filteredParts = parts.filter(part => !mascotNames.includes(part));
+
+  // Step 3: Check if there are more than one filtered parts
+  // If yes, join all parts except the last one to form the school name
+  // If no, return the full team name
+  return filteredParts.length > 1 ? filteredParts.slice(0, -1).join(' ') : fullTeamName;
+}
+```
+
+Now, let's explain each step:
+
+1. **Splitting the Full Team Names:**
+   ```typescript
+   const parts = fullTeamName.split(' ');
+   ```
+   Here, `split(' ')` is used to split the `fullTeamName` into an array of parts based on the space character. For example, if `fullTeamName` is "Los Angeles Lakers," `parts` would be `["Los", "Angeles", "Lakers"]`.
+
+2. **Filtering Out Known Mascots:**
+   ```typescript
+   const filteredParts = parts.filter(part => !mascotNames.includes(part));
+   ```
+   This step filters out any mascot names, which can be found in our mascot data, from the array of parts. The `filter` function is used to keep only the parts that are *not* included in the `mascotNames` array. For instance, if `mascotNames` includes "Tarheels," and the `fullTeamName` is "North Carolina Tarheels" then our `filteredParts` would end up as `["North", "Carolina"]`.
+
+3. **Forming the School Names:**
+   ```typescript
+   return filteredParts.length > 1 ? filteredParts.slice(0, -1).join(' ') : fullTeamName;
+   ```
+   The final step checks if there is more than one filtered part. If there is, it joins all parts except the last one to form the school name. If not, it returns the full team name.
+
+The function is designed to extract the school name from the full team name, considering common mascots and handling cases where there might be multiple parts in the team name in the same way that we would manipulate our simpler cases containing one-word schools and mascot names, such as `Akron Zips`.
 
 It's a practical, simple solution that had a big impact. Touchdown! 🎉
 
-## Advantages of the Update
+## Gaining the Advantage
 
 Our new and improved code helps accurately handle multi-word school names in the context of processing our selected teams Svelte store. The primary objective? Interacting seamlessly with the College Football Data (CFBD) API. Pretty sweet!
 
-Just to circle back and reiterate: we needed clean school names devoid of school mascot references to correctly fetch game data from the CFBD API. To achieve this, we devised a function to filter out and discard mascot names from our selected teams, ensuring that the subsequent fetch request URL would only contain school names, allowing us to receive a proper, error-free response from the API.
+Just to circle back real quick and review the tape: we needed clean school names devoid of school mascot references to correctly fetch game data from the CFBD API. To achieve this, we devised a function to filter out and discard mascot names from our selected teams, ensuring that the subsequent fetch request URL would only contain school names, allowing us to receive a proper, error-free response from the API.
 
-In summary, the changes guarantee that our data retrieval process aligns with the expectations for the API's URL, which allows us to continue our journey down the sidelines and bring it on home. Alright, I promise that's enough corny football references for one day.
+In summary, the changes guarantee that our data retrieval process aligns with the expectations for the API's URL, which allows us to continue our journey down the sidelines and bring it on home.
 
-## The Play Review
+## Reviewing the Game Tape
+ 
+Through iterative problem-solving and deliberate, effective adjustments to the way we are handling our data, I'm happy to say that we have eliminated the inaccurate filtering in our API fetch requests. 
 
-Through iterative problem-solving and deliberate, effective adjustments to the way we are handling our data, I'm happy to say that we have eliminated the inaccurate filtering in our API fetch requests. For now. 🤞
+For now...🤞
 
-I will continue working on expanding Fieldwing's functionality over the next couple weeks, while juggling the busy holiday season. I am planning on creating a new feature that will allow users to compare the historical head-to-head results of two teams to see who has had the upper-hand over the years. I'm only adding this new feature to antagonize Ohio State and Michigan fans. 🤫
+Going forward, I will continue working on expanding Fieldwing's functionality over the next couple weeks, while juggling the busy holiday season. I am planning on creating a new feature that will allow users to compare the historical head-to-head results of two teams to see who has had the upper-hand over the years. I'm only adding this new feature to antagonize Ohio State and Michigan fans. 🤫
 
 Thanks for reading, I appreciate you. Take care!
 
