@@ -1,4 +1,4 @@
-## Eleventy Blog - Daily Echoes & Considerations
+## Yamabiko Blog - Echoes from Beyond the Void
 
 #### Template
   - This blog was built using mendhak's Github Public Template `Eleventy Satisfactory`, located at https://github.com/mendhak/eleventy-satisfactory
