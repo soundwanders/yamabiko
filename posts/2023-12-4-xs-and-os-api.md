@@ -91,7 +91,7 @@ Now, let's explain each step:
    ```typescript
    const parts = fullTeamName.split(' ');
    ```
-   Here, `split(' ')` is used to split the `fullTeamName` into an array of parts based on the space character. For example, if `fullTeamName` is "Los Angeles Lakers," `parts` would be `["Los", "Angeles", "Lakers"]`.
+   Here, `split(' ')` is used to split the `fullTeamName` into an array of parts based on the space character. For example, if `fullTeamName` is "South Carolina Gamecocks," then `parts` would be `["South", "Carolina", "Gamecocks"]`.
 
 2. **Filtering Out Known Mascots:**
    ```typescript
@@ -113,7 +113,7 @@ It's a practical, simple solution that had a big impact. Touchdown! 🎉
 
 Our new and improved code helps accurately handle multi-word school names in the context of processing our selected teams Svelte store. The primary objective? Interacting seamlessly with the College Football Data (CFBD) API. Pretty sweet!
 
-Just to circle back real quick and review the tape: we needed clean school names devoid of school mascot references to correctly fetch game data from the CFBD API. To achieve this, we devised a function to filter out and discard mascot names from our selected teams, ensuring that the subsequent fetch request URL would only contain school names, allowing us to receive a proper, error-free response from the API.
+Just to circle back real quick and review the goal: we needed clean school names devoid of school mascot references to correctly fetch game data from the CFBD API. To achieve this, I crafted a function to filter out and discard mascot names from our selected teams, ensuring that the subsequent fetch request URL would only contain school names, allowing us to receive a proper, error-free response from the API.
 
 In summary, the changes guarantee that our data retrieval process aligns with the expectations for the API's URL, which allows us to continue our journey down the sidelines and bring it on home.
 
