@@ -11,7 +11,7 @@ tags:
   - api integration
   - CFBD API
   - string manipulation
-  - array filter
+  - filter array
 ---
 
 #  Refining Our CFBD API Data Retrieval
